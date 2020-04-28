@@ -1,15 +1,13 @@
-import React , {useState} from 'react';
-import GoogleLogin from 'react-google-login'
-import axios from 'axios'
+import React from 'react';
+import GoogleLogin from 'react-google-login';
+import axios from 'axios';
 
-
-const Google = ({informParent} = f => f) => {
-
-   const responseGoogle = response => {
+const Google = ({ informParent = f => f }) => {
+    const responseGoogle = response => {
         console.log(response.tokenId);
         axios({
             method: 'POST',
-            url: `http://localhost:8000/api/google-login`,
+            url: `${process.env.REACT_APP_API}/google-login`,
             data: { idToken: response.tokenId }
         })
             .then(response => {
@@ -21,11 +19,10 @@ const Google = ({informParent} = f => f) => {
                 console.log('GOOGLE SIGNIN ERROR', error.response);
             });
     };
-
-    return ( 
-    <div className="pb-3">
+    return (
+        <div className="pb-3">
             <GoogleLogin
-                clientId={'811401760189-u7ilolap4h237ou2fgrlomn9lh4p52v4.apps.googleusercontent.com'}
+                clientId={`${process.env.REACT_APP_GOOGLE_CLIENT_ID}`}
                 onSuccess={responseGoogle}
                 onFailure={responseGoogle}
                 render={renderProps => (
@@ -40,7 +37,7 @@ const Google = ({informParent} = f => f) => {
                 cookiePolicy={'single_host_origin'}
             />
         </div>
-     );
-}
- 
+    );
+};
+
 export default Google;
