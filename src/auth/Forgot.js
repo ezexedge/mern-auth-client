@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.min.css';
 const Forgot = ({ history }) => {
     const [values, setValues] = useState({
         email: '',
-        buttonText: 'Request password reset link'
+        buttonText: 'volver a obtener el password'
     });
 
     const { email, buttonText } = values;
@@ -19,7 +19,7 @@ const Forgot = ({ history }) => {
 
     const clickSubmit = event => {
         event.preventDefault();
-        setValues({ ...values, buttonText: 'Submitting' });
+        setValues({ ...values, buttonText: 'enviando' });
         axios({
             method: 'PUT',
             url: `${process.env.REACT_APP_API}/forgot-password`,
@@ -28,12 +28,12 @@ const Forgot = ({ history }) => {
             .then(response => {
                 console.log('FORGOT PASSWORD SUCCESS', response);
                 toast.success(response.data.message);
-                setValues({ ...values, buttonText: 'Requested' });
+                setValues({ ...values, buttonText: 'enviado' });
             })
             .catch(error => {
                 console.log('FORGOT PASSWORD ERROR', error.response.data);
                 toast.error(error.response.data.error);
-                setValues({ ...values, buttonText: 'Request password reset link' });
+                setValues({ ...values, buttonText: 'enviar' });
             });
     };
 
@@ -56,7 +56,7 @@ const Forgot = ({ history }) => {
         <Layout>
             <div className="col-md-6 offset-md-3">
                 <ToastContainer />
-                <h1 className="p-5 text-center">Forgot password</h1>
+                <h1 className="p-5 text-center">olvide el password</h1>
                 {passwordForgotForm()}
             </div>
         </Layout>

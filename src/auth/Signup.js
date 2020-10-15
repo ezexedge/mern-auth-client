@@ -23,7 +23,7 @@ const Signup = () => {
 
     const clickSubmit = event => {
         event.preventDefault();
-        setValues({ ...values, buttonText: 'Submitting' });
+        setValues({ ...values, buttonText: 'enviando' });
         axios({
             method: 'POST',
             url: `${process.env.REACT_APP_API}/signup`,
@@ -31,12 +31,14 @@ const Signup = () => {
         })
             .then(response => {
                 console.log('SIGNUP SUCCESS', response);
-                setValues({ ...values, name: '', email: '', password: '', buttonText: 'Submitted' });
-                toast.success(response.data.message);
+                setValues({ ...values, name: '', email: '', password: '', buttonText: 'enviado' });
+               // toast.success(response.data.message);
+               toast.success('revisa tu correo que ingresaste al formulario');
+
             })
             .catch(error => {
                 console.log('SIGNUP ERROR', error.response.data);
-                setValues({ ...values, buttonText: 'Submit' });
+                setValues({ ...values, buttonText: 'enviar' });
                 toast.error(error.response.data.error);
             });
     };
@@ -44,7 +46,7 @@ const Signup = () => {
     const signupForm = () => (
         <form>
             <div className="form-group">
-                <label className="text-muted">Name</label>
+                <label className="text-muted">Nombre</label>
                 <input onChange={handleChange('name')} value={name} type="text" className="form-control" />
             </div>
 
@@ -71,11 +73,11 @@ const Signup = () => {
             <div className="col-md-6 offset-md-3">
                 <ToastContainer />
                 {isAuth() ? <Redirect to="/" /> : null}
-                <h1 className="p-5 text-center">Signup</h1>
+                <h1 className="p-5 text-center">Crear cuenta</h1>
                 {signupForm()}
                 <br />
                 <Link to="/auth/password/forgot" className="btn btn-sm btn-outline-danger">
-                    Forgot Password
+                    Olvide la contrasena
                 </Link>
             </div>
         </Layout>

@@ -23,12 +23,12 @@ const Layout = ({ children, match, history }) => {
                 <Fragment>
                     <li className="nav-item">
                         <Link to="/signin" className="nav-link" style={isActive('/signin')}>
-                            Signin
+                        Iniciar sesion
                         </Link>
                     </li>
                     <li className="nav-item">
                         <Link to="/signup" className="nav-link" style={isActive('/signup')}>
-                            Signup
+                            Crear Cuenta
                         </Link>
                     </li>
                 </Fragment>
@@ -61,7 +61,7 @@ const Layout = ({ children, match, history }) => {
                             });
                         }}
                     >
-                        Signout
+                        Cerrar sesion
                     </span>
                 </li>
             )}

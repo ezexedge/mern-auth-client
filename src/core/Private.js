@@ -66,7 +66,7 @@ const Private = ({ history }) => {
                 console.log('PRIVATE PROFILE UPDATE SUCCESS', response);
                 updateUser(response, () => {
                     setValues({ ...values, buttonText: 'Submitted' });
-                    toast.success('Profile updated successfully');
+                    toast.success('actulizacion exitosa');
                 });
             })
             .catch(error => {
@@ -79,11 +79,11 @@ const Private = ({ history }) => {
     const updateForm = () => (
         <form>
             <div className="form-group">
-                <label className="text-muted">Role</label>
+                <label className="text-muted">Rol</label>
                 <input defaultValue={role} type="text" className="form-control" disabled />
             </div>
             <div className="form-group">
-                <label className="text-muted">Name</label>
+                <label className="text-muted">Nombre</label>
                 <input onChange={handleChange('name')} value={name} type="text" className="form-control" />
             </div>
 
@@ -109,8 +109,8 @@ const Private = ({ history }) => {
         <Layout>
             <div className="col-md-6 offset-md-3">
                 <ToastContainer />
-                <h1 className="pt-5 text-center">Private</h1>
-                <p className="lead text-center">Profile update</p>
+                <h1 className="pt-5 text-center">Privado</h1>
+                <p className="lead text-center">Modificar perfil</p>
                 {updateForm()}
             </div>
         </Layout>

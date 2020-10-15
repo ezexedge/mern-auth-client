@@ -11,7 +11,7 @@ const Reset = ({ match }) => {
         name: '',
         token: '',
         newPassword: '',
-        buttonText: 'Reset password'
+        buttonText: 'modificar password'
     });
 
     useEffect(() => {
@@ -31,7 +31,7 @@ const Reset = ({ match }) => {
 
     const clickSubmit = event => {
         event.preventDefault();
-        setValues({ ...values, buttonText: 'Submitting' });
+        setValues({ ...values, buttonText: 'enviando' });
         axios({
             method: 'PUT',
             url: `${process.env.REACT_APP_API}/reset-password`,
@@ -40,12 +40,12 @@ const Reset = ({ match }) => {
             .then(response => {
                 console.log('RESET PASSWORD SUCCESS', response);
                 toast.success(response.data.message);
-                setValues({ ...values, buttonText: 'Done' });
+                setValues({ ...values, buttonText: 'exito' });
             })
             .catch(error => {
                 console.log('RESET PASSWORD ERROR', error.response.data);
                 toast.error(error.response.data.error);
-                setValues({ ...values, buttonText: 'Reset password' });
+                setValues({ ...values, buttonText: 'modificar password' });
             });
     };
 
@@ -75,7 +75,7 @@ const Reset = ({ match }) => {
         <Layout>
             <div className="col-md-6 offset-md-3">
                 <ToastContainer />
-                <h1 className="p-5 text-center">Hey {name}, Type your new password</h1>
+                <h1 className="p-5 text-center">Hola {name}, ingresa una nueva contrasena</h1>
                 {passwordResetForm()}
             </div>
         </Layout>

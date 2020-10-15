@@ -14,16 +14,13 @@ const App = () => {
         <Layout>
             {head()}
             <div className="col-md-6 offset-md-3 text-center">
-                <h1 className="p-5">React Node MongoDB Authentication Boilerplate</h1>
-                <h2>MERN STACK</h2>
+                <h1 className="p-5">React Node MongoDB Autenticacion</h1>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/94/MERN-logo.png" style={{"width": "300px"}} />
+                <h2 className="mt-5">De que se trata?</h2>
+            
                 <hr />
-                <p className="lead">
-                    MERN stack login register system with account activation, forgot password, reset password, login
-                    with facebook and google as well as private and protected routes for authenticated user and users
-                    with the role of admin.
-                </p>
-                <h4 className="p2">Bonus</h4>
-                <p className="lead">Profile update & deployment to digital ocean cloud servers</p>
+                <p className="lead">crear tu cuenta,iniciar sesion , modificar tu cuenta de usuario y recuperar tu password con la ayuda de sendgrid </p>
+                <p className="lead"></p>
             </div>
         </Layout>
     );
